@@ -35,7 +35,7 @@ void backtrack(int col, vector<int>&rowFlag, vector<int>&upperDiagonal, vector<i
             rowFlag[row]=1;
             upperDiagonal[row+col]=1;
             lowerDiagonal[n-1+col-row]=1;
-        recursion(col+1,rowFlag,upperDiagonal,lowerDiagonal,n,res,temp);
+        backtrack(col+1,rowFlag,upperDiagonal,lowerDiagonal,n,res,temp);
         temp[row][col]='.';
         rowFlag[row]=0;
         upperDiagonal[row+col]=0;
@@ -59,7 +59,7 @@ void backtrack(int col, vector<int>&rowFlag, vector<int>&upperDiagonal, vector<i
         vector<int>rowFlag(n,0);
         vector<int>upperDiagonal(2*n,0);
         vector<int>lowerDiagonal(2*n,0);
-        recursion(0,rowFlag,upperDiagonal,lowerDiagonal,n,res,board);
+        backtrack(0,rowFlag,upperDiagonal,lowerDiagonal,n,res,board);
         return res;
     }
 };
